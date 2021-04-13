@@ -1,5 +1,5 @@
 {
-  "name": "@imayth/logger",
+  "name": "@iamyth/logger",
   "version": "1.0.0",
   "description": "A nice looking console logger",
   "main": "dist/index.js",
