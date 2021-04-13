@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import inquirer from 'inquirer';
 
 export function createConsoleLogger(descriptiveTitle: string) {
     const curriedPrint = (emoji: string) => (color: 'blueBright' | 'greenBright' | 'redBright') => {
@@ -12,9 +13,22 @@ export function createConsoleLogger(descriptiveTitle: string) {
         };
     };
 
+    const prompt = async (question: string) => {
+        const logger = curriedPrint('🖊')('blueBright')(descriptiveTitle);
+        logger(question);
+        const answer = await inquirer.prompt([
+            {
+                type: 'input',
+                name: ' ',
+            },
+        ]);
+        return answer[' '];
+    };
+
     return {
         info: curriedPrint('ℹ️')('blueBright')(descriptiveTitle),
         task: curriedPrint('🛠')('greenBright')(descriptiveTitle),
         error: curriedPrint('❌')('redBright')(descriptiveTitle),
+        prompt,
     };
 }

@@ -6,7 +6,7 @@ const consoleOutput = require('test-console').stdout;
 
 describe('createConsoleLogger', () => {
     const logger = createConsoleLogger('My Console Logger');
-
+    
     it('info', () => {
         const output = consoleOutput.inspectSync(() => {
             logger.info('Test logger.info()');
@@ -25,4 +25,5 @@ describe('createConsoleLogger', () => {
         })
         assert.deepEqual(output, ["\n","\u001b[91m\u001b[1m❌ [My Console Logger]\u001b[22m\u001b[39m \u001b[97m\u001b[40mTest logger.error()\u001b[49m\u001b[39m\n"])
     })
+
 })
