@@ -1,6 +1,6 @@
 {
   "name": "@iamyth/logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A nice looking console logger",
   "main": "dist/index.js",
   "repository": "https://github.com/Jamyth/logger",
