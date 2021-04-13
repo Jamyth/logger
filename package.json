@@ -1,0 +1,26 @@
+{
+  "name": "@imayth/logger",
+  "version": "1.0.0",
+  "description": "A nice looking console logger",
+  "main": "dist/index.js",
+  "repository": "https://github.com/Jamyth/logger",
+  "author": "Jamyth",
+  "license": "MIT",
+  "files": ["dist/**"],
+  "scripts": {
+    "format": "prettier --write ./src",
+    "lint": "eslint --ext ./src/**/*.ts",
+    "prebuild": "yarn format && yarn lint",
+    "build": "tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "chalk": "4.1.0"
+  },
+  "devDependencies": {
+    "@iamyth/prettier-config": "0.0.1",
+    "eslint-config-iamyth": "0.0.5",
+    "prettier": "2.2.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.4"
+  }
+}
