@@ -26,6 +26,9 @@ myLogger.error('Simple Text...');
 myLogger.info(new Error('401 Unauthorized'));
 myLogger.task([new Error('404 Not Found')]);
 myLogger.error([new Error('Unexpected error occurred')]);
+
+// Prompt User Input
+myLogger.prompt('What is your name ?').then((answer) => {});
 ```
 
 ![DEMO](./README_THUMBNAIL.png)
