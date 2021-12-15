@@ -6,18 +6,23 @@ type Color = 'blueBright' | 'greenBright' | 'redBright';
 
 export function createConsoleLogger(descriptiveTitle: string) {
     const curriedPrint = (emoji: string) => (color: Color) => {
-        return (descriptiveTitle: string) => (text: Text, lineBreak: boolean = false) => {
-            const title = chalk[color].bold(`${emoji} [${descriptiveTitle}]`);
-            const body = chalk.whiteBright((Array.isArray(text) ? text : [text]).map((_) => _.toString()).join(' '));
-            if (lineBreak) {
-                console.info('');
-            }
-            return `${title} ${body}`;
-        };
+        return (descriptiveTitle: string) =>
+            (text: Text, lineBreak: boolean = false) => {
+                const title = chalk[color].bold(`${emoji} [${descriptiveTitle}]`);
+                const body = chalk.whiteBright(
+                    (Array.isArray(text) ? text : [text]).map((_) => _.toString()).join(' '),
+                );
+                if (lineBreak) {
+                    console.info('');
+                }
+                return `${title} ${body}`;
+            };
     };
 
-    const log = (callback: (text: Text, lineBreak?: boolean) => string) => (text: Text, lineBreak: boolean = false) =>
-        console.info(callback(text, lineBreak));
+    const log =
+        (callback: (text: Text, lineBreak?: boolean) => string) =>
+        (text: Text, lineBreak: boolean = false) =>
+            console.info(callback(text, lineBreak));
 
     const prompt = (callback: (text: Text) => string) => async (text: Text) => {
         const rl = readline.createInterface({
